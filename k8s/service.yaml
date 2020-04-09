@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: easter_buddies
+  labels:
+    app: easter_buddies
+spec:
+  type: NodePort
+  ports:
+  - port: 8005
+    targetPort: easter_buddies
+  selector:
+    app: easter_buddies
