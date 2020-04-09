@@ -19,7 +19,7 @@ persons = []
 with open("data.txt") as f:
     for line in f:
         data = line.split("\t")
-        p = Person(data[0], data[1], data[2])
+        p = Person(data[0], data[1], data[2].strip())
         persons.append(p)
 
 template = "main.html"

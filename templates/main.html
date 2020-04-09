@@ -1,64 +1,73 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <title>{% block title %}easter buddy sometghin{% endblock %}</title>
+    <title>{% block title %}Easter buddy{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!-- <meta name="theme-color" content="#563d7c"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
-  </head>
-  
-    <body class="text-center easter">
-        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+</head>
 
-            <main role="main" class="inner cover">
-                <h1 class="cover-heading">Cellular Genetics Easter Buddies!</h1>
-                <p class="lead">Clikc on the button below to find tyour Easter Buddy!</p>
-                <form action="" method="post">
-                  <p class="lead"><button class="btn btn-lg btn-primary" type="submit" style="font-size: 3rem;">REVEAL</button></p>
-              </form>
-              <div>
-              
-              {% if person %}
-                  <div class="person mt-3">
+<body class="text-center easter">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Cellular Genetics Easter Buddies</h1>
+        <p class="lead">Click on the button below to find your Easter Buddy!</p>
+        <form action="" method="post">
+            <p class="lead">
+                <button class="btn btn-lg btn-primary" type="submit" style="font-size: 3rem;">Reveal</button>
+            </p>
+        </form>
+        <div>
+
+            {% if person %}
+                <div class="person mt-3">
                     <span class="font-italic">Your buddy is...</span>
                     <div class="progress m-3 ">
-                      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
                     </div>
-                    <p class="buddy d-none">{{ person.first_name }} {{ person.last_name }} {{ '<' }}{{ person.email.strip() }}{{ '>' }}    </p>
-                  </div>
-
-              {% endif %}                
-            </main>
-            
-            <footer class="mastfoot mt-auto">
-                <div class="inner">
-                    <p>made with love by <span class="badge badge-danger font-italic">Cellular Genetics Informatics</span></p>
+                    <p class="buddy d-none">{{ person.first_name }} {{ person.last_name }} {{ '<' }}{{ person.login }}@sanger.ac.uk{{ '>' }}    </p>
                 </div>
-            </footer>
-        </div>
 
-      
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    {% if person %}
+            {% endif %}
+    </main>
+
+    <footer class="mastfoot mt-auto">
+        <div class="inner">
+            <p>made with love by <span class="badge badge-danger font-italic">Cellular Genetics Informatics</span></p>
+        </div>
+    </footer>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+{% if person %}
     <script>
-      $(document).ready(() => {
-        setTimeout(() => {
-              $(".progress").addClass('d-none');
-              $(".buddy").removeClass('d-none');
-        }, 1000); 
-      });
+        $(document).ready(() => {
+            setTimeout(() => {
+                $(".progress").addClass('d-none');
+                $(".buddy").removeClass('d-none');
+            }, 1000);
+        });
     </script>
-    {% endif %}
-    </body>
+{% endif %}
+</body>
 </html>

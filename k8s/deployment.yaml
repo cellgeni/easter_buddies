@@ -14,7 +14,7 @@ spec:
         app: easter-buddies
     spec:
       containers:
-      - image: quay.io/cellgeni/easter_buddies:latest
+      - image: quay.io/cellgeni/easter_buddies:1.0
         imagePullPolicy: IfNotPresent
         name: easter-buddies
         ports:
