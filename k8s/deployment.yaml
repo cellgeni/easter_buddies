@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: easter_buddies
+  name: easter-buddies
 spec:
   selector:
     matchLabels:
-      app: easter_buddies
+      app: easter-buddies
   replicas: 1
   template:
     metadata:
-      name: easter_buddies
+      name: easter-buddies
       labels:
-        app: easter_buddies
+        app: easter-buddies
     spec:
       containers:
       - image: quay.io/cellgeni/easter_buddies:latest
         imagePullPolicy: IfNotPresent
-        name: easter_buddies
+        name: easter-buddies
         ports:
         - containerPort: 8005
-          name: easter_buddies
+          name: easter-buddies
         resources:
           requests:
             memory: "256Mi"
@@ -30,7 +30,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: easter_buddies
+            port: easter-buddies
           initialDelaySeconds: 3
           timeoutSeconds: 5
           periodSeconds: 240
